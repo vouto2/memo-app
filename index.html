@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シンプルメモ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- 左カラム: ナビゲーションエリア -->
+        <div class="nav-column">
+            <header class="app-header">
+                <h1>シンプルメモ</h1>
+                <button id="new-memo-btn">+ 新規作成</button>
+            </header>
+            <ul id="memo-list" class="memo-list"></ul>
+        </div>
+
+        <!-- 右カラム: コンテンツエリア -->
+        <div class="main-column">
+            <div id="memo-editor" class="memo-editor">
+                <div class="main-column-header">
+                    <button id="back-to-list-btn">&lt; 一覧へ戻る</button>
+                </div>
+                <input type="text" id="memo-title" placeholder="タイトル">
+                <textarea id="memo-body" placeholder="ここにメモを入力..."></textarea>
+                <div class="editor-buttons">
+                    <button id="save-memo-btn">保存</button>
+                    <button id="delete-memo-btn" class="danger">削除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

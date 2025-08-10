@@ -1,0 +1,206 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --text-color: #333;
+    --border-color: #ddd;
+    --danger-color: #d9534f;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 左カラム */
+.nav-column {
+    width: 300px;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#new-memo-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#new-memo-btn:hover {
+    background-color: #357abd;
+}
+
+.memo-list {
+    list-style: none;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.memo-list li {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.memo-list li:hover {
+    background-color: #e9ecef;
+}
+
+.memo-list li.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 右カラム */
+.main-column {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.memo-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main-column-header {
+    display: none; /* PCでは非表示 */
+    margin-bottom: 1rem;
+}
+
+#back-to-list-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#memo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    border: none;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    background: none;
+}
+
+#memo-title:focus {
+    outline: none;
+}
+
+#memo-body {
+    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.8;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 1rem;
+    resize: none;
+    background: white;
+}
+
+#memo-body:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.editor-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editor-buttons button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+#save-memo-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+#save-memo-btn:hover {
+    background-color: #218838;
+}
+
+#delete-memo-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+#delete-memo-btn:hover {
+    background-color: #c9302c;
+}
+
+/* レスポンシブ対応 (画面幅768px以下) */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .nav-column {
+        width: 100%;
+        height: 100%;
+        border-right: none;
+        display: flex; /* 編集モードじゃない時は表示 */
+    }
+
+    .main-column {
+        display: none; /* デフォルトではエディタを非表示 */
+        width: 100%;
+        height: 100%;
+        padding: 1.5rem;
+    }
+
+    /* JSでこのクラスを付与して表示を切り替える */
+    .app-container.editing .nav-column {
+        display: none;
+    }
+
+    .app-container.editing .main-column {
+        display: flex; /* .editingモードの時だけ表示 */
+    }
+
+    .main-column-header {
+        display: block; /* スマホの時だけ表示 */
+    }
+}
