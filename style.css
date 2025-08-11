@@ -203,4 +203,8 @@ body {
     .main-column-header {
         display: block; /* スマホの時だけ表示 */
     }
+
+    #memo-body {
+        max-height: calc(100vh - 180px); /* Adjust as needed */
+    }
 }
