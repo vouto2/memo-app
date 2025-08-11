@@ -110,9 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
         saveMemos(memos);
         alert('メモが保存されました！'); // Added this line
         renderMemoList();
+        showListView(); // 保存後に一覧画面に戻る
         // スマホ表示を考慮し、保存後に一覧へ戻るオプションもあるが、
         // ここでは編集を継続できるようにエディタ表示のままにする。
-        // displayMemo(currentMemoId);
+        //displayMemo(currentMemoId);
     });
 
     deleteMemoBtn.addEventListener('click', () => {
